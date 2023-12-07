@@ -1,6 +1,6 @@
 Name:		texlive-pgf-spectra
-Version:	59827
-Release:	2
+Version:	66961
+Release:	1
 Summary:	Draw continuous or discrete spectra using PGF/TikZ
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/pgf-spectra
