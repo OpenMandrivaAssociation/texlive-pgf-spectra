@@ -3,7 +3,7 @@ Version:	71883
 Release:	1
 Summary:	Draw continuous or discrete spectra using PGF/TikZ
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/pgf-spectra
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/pgf-spectra
 License:	lppl1.3
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/pgf-spectra.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/pgf-spectra.doc.r%{version}.tar.xz
