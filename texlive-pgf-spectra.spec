@@ -1,41 +1,31 @@
-Name:		texlive-pgf-spectra
-Version:	71883
-Release:	1
+%global tl_name pgf-spectra
+%global tl_revision 75535
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	3.0.2
+Release:	%{tl_revision}.1
 Summary:	Draw continuous or discrete spectra using PGF/TikZ
 Group:		Publishing
-URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/pgf-spectra
+URL:		https://www.ctan.org/tex-archive/graphics/pgf/contrib/pgf-spectra
 License:	lppl1.3
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/pgf-spectra.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/pgf-spectra.doc.r%{version}.tar.xz
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/pgf-spectra.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/pgf-spectra.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+BuildSystem:	texlive
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-The purpose of this package is to draw the spectra of elements
-in a simple way. It is based on the package pst-spectra, but
-with some extra options. It relies on PGF/TikZ for drawing the
-desired spectrum, continuous or discrete. There are data
-available for the spectra of 98 elements and their ions (from
-the NASA database and from NIST). It also allows the user to
-draw spectra using their own data.
+The purpose of this package is to draw the spectrum of elements in a
+simple way. It relies on PGF/TikZ to draw the desired spectrum,
+continuous or discrete. Data for the spectra of 98 elements and their
+ions are available (from the NASA database and from NIST). Lines data
+ranges from Extreme UV to Near IR (from 10 to 4000 nanometers). It also
+allows the user to draw spectra using their own data. It is possible to
+redshift the lines of a spectrum, by directly entering the redshift
+value or the velocity and the angle to compute the redshift value.
+Spectral lines data can be presented in a table or exported to a file.
+The package also provides color conversion (correlated color
+temperature), shadings for use with TikZ and/or pgfplots and color maps
+for use with pgfplots.
 
-%prep
-%autosetup -p1 -c -a1
-
-%build
-
-%install
-rm -rf tlpkg
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -a * %{buildroot}%{_texmfdistdir}
-
-%files
-%{_texmfdistdir}/tex/latex/pgf-spectra
-%doc %{_texmfdistdir}/doc/latex/pgf-spectra
-
-%post -p %{_sbindir}/texlive.post
-
-%postun
-[ "$1" -eq 0 ] && %{_sbindir}/texlive.post
